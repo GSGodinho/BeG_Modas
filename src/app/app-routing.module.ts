@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'casdastro',
+    loadChildren: () => import('./Produtos/casdastro/casdastro.module').then( m => m.CasdastroPageModule)
+  },
 ];
 
 @NgModule({
