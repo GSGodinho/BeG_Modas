@@ -1,0 +1,7 @@
+{
+  "name": "BeG_Modas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
