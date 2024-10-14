@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'casdastro',
     loadChildren: () => import('./Produtos/casdastro/casdastro.module').then( m => m.CasdastroPageModule)
+  },  {
+    path: 'listagem',
+    loadChildren: () => import('./Produtos/listagem/listagem.module').then( m => m.ListagemPageModule)
   },
+
 ];
 
 @NgModule({
