@@ -12,24 +12,32 @@ export class VestesService {
     private storage:Storage
   ) {}
 
-  async	update(vestes:	Vestes)	{
-    if(vestes.id.isEmpty())	{
-      vestes.id	=	Guid.create();
+  async	update(veste:	Vestes)	{
+    veste.id = Guid.parse(JSON.parse(JSON.stringify(veste.id)).value);
+    await this.storage.create();
+    if(veste.id.isEmpty())	{
+      veste.id	=	Guid.create();
     }
-    this.storage.set(vestes.id.toString(),	JSON.stringify(vestes));
+    this.storage.set(veste.id.toString(),	JSON.stringify(veste));
   }
 
   async getById(id: string): Promise<Vestes>{
-    const pecaString = await this.storage.get(id);
-    return JSON.parse(pecaString);
+    const vesteString = await this.storage.get(id);
+    return JSON.parse(vesteString);
+  }
+
+  Remove(veste : Vestes)
+  {
+    veste.id = Guid.parse(JSON.parse(JSON.stringify(veste.id)).value);
+    this.storage.remove(veste.id.toString());
   }
 
   async getAll() {
     let vestes: Vestes[] = [];
     try {
         await this.storage.forEach((value: string, key: string) => {
-            const peca: Vestes = JSON.parse(value);
-            vestes.push(peca);
+            const veste: Vestes = JSON.parse(value);
+            vestes.push(veste);
         });
         return vestes;
     } catch (error) {

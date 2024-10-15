@@ -1,17 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button	defaultHref="/listagem">voltar</ion-back-button>
+    </ion-buttons>
+
     <ion-title>Cadastro</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Cadastro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
   <ng-container *ngIf="VestesForm">
-    <form [formGroup]="VestesForm" submit="submit()">
+    <form [formGroup]="VestesForm" (submit)="submit()">
 
       <ion-item [disabled]="!modoEdicao">  
         <ion-input label="Nome do Produto" labelPlacement="floating" formControlName="nome"></ion-input>
@@ -94,5 +96,5 @@
       
     </form>
   </ng-container>
-
+  </ion-list>
 </ion-content>

@@ -15,7 +15,6 @@ import { CasdastroPage } from './casdastro.page';
     IonicModule,
     ReactiveFormsModule,
     CasdastroPageRoutingModule
-    
   ],
   declarations: [CasdastroPage]
 })

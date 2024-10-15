@@ -32,6 +32,13 @@ export class CasdastroPage implements OnInit {
     this.VestesForm.setValue(this.veste);
     this.modoEdicao	=	false;
   }
+  
+  async	submit()	{
+    this.veste = this.VestesForm.value
+    await this.vestesService.update(this.veste);
+    this.toastService.apresentacaoToast('Gravação	bem	sucedida',	3000,	'top');
+    this.modoEdicao	=	false;
+  }
 
 
   async ngOnInit() {
